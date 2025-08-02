@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import FileSection from "./FileSection";
 import UploadModal from "./UploadModal";
 import { useAppContext } from "./AppContext";
-import UploadSection from "./uploadSection";
+import UploadSection from "./UploadSection";
 
 const Dashboard = () => {
   const { open, handleOpen, handleClose, setOpen, searchTerm, setSearchTerm } = useAppContext();
