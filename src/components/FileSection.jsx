@@ -7,7 +7,7 @@ const FileSection = ({uploading , searchTerm}) => {
  const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
  const [viewType, setViewType] = useState("list"); 
-
+  const api = import.meta.env.VITE_API_URL;
 
 
 
@@ -19,7 +19,7 @@ const FileSection = ({uploading , searchTerm}) => {
 
       if (!token) return;
       try {
-        const res = await axios.get("http://localhost:5000/api/files", {
+        const res = await axios.get(`${api}/api/files`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -43,7 +43,7 @@ const handleDelete = async (id) => {
   if (!confirmed) return;
 
   try {
-    await axios.delete(`http://localhost:5000/api/files/${id}`, {
+    await axios.delete(`${api}/api/files/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setFiles(prev => prev.filter(file => file._id !== id)); // Update UI
@@ -63,7 +63,7 @@ const handleRename = async (id) => {
   const token = localStorage.getItem('token');
 
   try {
-    const res = await axios.put(`http://localhost:5000/api/files/${id}/rename`, {
+    const res = await axios.put(`${api}/api/files/${id}/rename`, {
       newName
     }, {
       headers: { Authorization: `Bearer ${token}` }

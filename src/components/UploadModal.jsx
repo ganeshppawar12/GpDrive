@@ -25,6 +25,7 @@ export default function NestedModal({open ,handleClose , uploading ,setUploading
   const [file, setFile] = useState(null);
 
   const [message, setMessage] = useState('');
+    const api = import.meta.env.VITE_API_URL;
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -41,7 +42,7 @@ export default function NestedModal({open ,handleClose , uploading ,setUploading
 
     try {
       setUploading(true);
-      const res = await axios.post('http://localhost:5000/api/files/upload', formData, {
+      const res = await axios.post(`${api}/api/files/upload`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

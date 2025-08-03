@@ -8,7 +8,7 @@ import axios from 'axios';
 const FiltterSection = ({ uploading }) => {
  const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
-
+  const api = import.meta.env.VITE_API_URL;
      useEffect(() => {
    
       const fetchFiles = async () => {
@@ -16,7 +16,7 @@ const FiltterSection = ({ uploading }) => {
   
         if (!token) return;
         try {
-          const res = await axios.get("http://localhost:5000/api/files", {
+          const res = await axios.get(`${api}/api/files`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
