@@ -113,7 +113,7 @@ const navigate = useNavigate();
 
         <p className="text-sm text-center text-gray-600 mt-6">
           Already have an account?{' '}
-          <a href="/#/" className="text-purple-600 font-medium hover:underline">Sign in</a>
+          <a href="https://gp-drive-w9b5.vercel.app/#/login" className="text-purple-600 font-medium hover:underline">Sign in</a>
         </p>
       </div>
     </div>
