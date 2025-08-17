@@ -7,6 +7,7 @@ const Userloginpage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+    const [loading , setLoading] = useState(false);
 
   const api = import.meta.env.VITE_API_URL;
 
@@ -16,7 +17,7 @@ const Userloginpage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-
+    setLoading(true);
     try {
       const res = await axios.post(`${api}/api/auth/login`, {
         email,
@@ -34,6 +35,7 @@ const Userloginpage = () => {
       setError(err.response?.data?.message || 'Login failed');
       console.log(err);
     }
+      setLoading(false);
   };
 
   return (
@@ -91,7 +93,7 @@ const Userloginpage = () => {
             type="submit"
             className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
           >
-            Sign in
+              {loading ? 'Signin...' :  'Sign in'} 
           </button>
         </form>
 
