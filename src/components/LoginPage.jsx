@@ -19,7 +19,7 @@ const LoginPage = () => {
           {/* <p className="text-gray-500 mb-6">Already have an account? <span className="text-blue-500 cursor-pointer">Sign in</span></p> */}
           <button
           onClick={handellogIn}
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-3 rounded-lg transition duration-300"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-3 rounded-lg transition duration-300 cursor-pointer"
           >
             Login
           </button>
