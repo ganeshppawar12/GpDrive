@@ -66,9 +66,7 @@ setUserdetails(()=>user);
             }
                
                  
-          
-              
-                <div>
+        
 
       <Menu
         id="basic-menu"
@@ -85,8 +83,7 @@ setUserdetails(()=>user);
         <MenuItem >My account</MenuItem>
         <MenuItem  onClick={handelLogout}>Logout</MenuItem>
       </Menu>
-    </div>
-              
+               
              
             </span>
 
