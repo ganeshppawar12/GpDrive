@@ -82,8 +82,8 @@ setUserdetails(()=>user);
           },
         }}
       >
-        <MenuItem >Profile</MenuItem>
-        <MenuItem >My account</MenuItem>
+{/*         <MenuItem >Profile</MenuItem>
+        <MenuItem >My account</MenuItem> */}
         <MenuItem  onClick={handelLogout}>Logout</MenuItem>
       </Menu>
 
