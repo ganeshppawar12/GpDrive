@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const Userloginpage = () => {
     const navigate = useNavigate();
@@ -94,7 +96,11 @@ const Userloginpage = () => {
             type="submit"
             className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
           >
-              {loading ? 'Signin...' :  'Sign in'} 
+               {loading 
+              ?  <Box sx={{ display: 'flex' }}>
+                     <CircularProgress />
+                  </Box> 
+              :  'Sign in'} 
           </button>
         </form>
 
