@@ -122,11 +122,11 @@ const handleDownload = (url) => {
    <table className="min-w-full border-separate border-spacing-y-2">
   <thead>
     <tr className="text-sm text-gray-600 bg-blue-50">
-      <th className="px-4 py-2 text-left rounded-l-lg">📄 File Name</th>
-      <th className="px-4 py-2 text-left">📅 Uploaded</th>
-      <th className="px-4 py-2 text-left">📁 Type</th>
-      <th className="px-4 py-2 text-left">📏 Size</th>
-      <th className="px-4 py-2 text-left rounded-r-lg">🔗 Link</th>
+      <th className="px-4 py-2 text-left rounded-l-lg">File Name</th>
+      <th className="px-4 py-2 text-left">Uploaded</th>
+      <th className="px-4 py-2 text-left">Type</th>
+      <th className="px-4 py-2 text-left">Size</th>
+      <th className="px-4 py-2 text-left rounded-r-lg">Link</th>
       <th className="px-4 py-2 text-right"></th>  {/* Empty column for menu */}
 
     </tr>
