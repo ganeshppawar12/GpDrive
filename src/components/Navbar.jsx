@@ -3,13 +3,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
 const navbar = ({searchTerm,setSearchTerm}) => {
   const [userDetails, setUserdetails] = useState(null);
   const [showDropdwon , setShowdropdown] = useState(false);
  const navigate = useNavigate();
+   const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClickmenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClosemenu = () => {
+    setAnchorEl(null);
+  };
  
  function handelLogout(){
   localStorage.removeItem('token');
@@ -50,11 +61,42 @@ setUserdetails(()=>user);
             }
                
                  {
-            showDropdwon ? (  <div id='moreoption'  className=' absolute right-2 z-1 bg-white'>
-              <ul className='border-1 border-gray-300 shadow p-2 rounded-md'>
-                <li className=' text-red-500  text-nowrap ' onClick={handelLogout} >Log Out</li>
-              </ul>
-            </div>) : (null) 
+            showDropdwon ? ( 
+              
+                <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClickmenu}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClosemenu}
+        slotProps={{
+          list: {
+            'aria-labelledby': 'basic-button',
+          },
+        }}
+      >
+        <MenuItem >Profile</MenuItem>
+        <MenuItem >My account</MenuItem>
+        <MenuItem  onClick={handelLogout}>Logout</MenuItem>
+      </Menu>
+    </div>
+              
+              
+            //   <div id='moreoption'  className=' absolute right-2 z-1 bg-white'>
+            //   <ul className='border-1 border-gray-300 shadow p-2 rounded-md'>
+            //     <li className=' text-red-500  text-nowrap ' onClick={handelLogout} >Log Out</li>
+            //   </ul>
+            // </div>
+              ) : (null) 
           }
             </span>
 
