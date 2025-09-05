@@ -75,7 +75,7 @@ setUserdetails(()=>user);
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={handleClosemenu}
         slotProps={{
           list: {
             'aria-labelledby': 'basic-button',
