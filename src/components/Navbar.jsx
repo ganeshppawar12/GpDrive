@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 
 const navbar = ({searchTerm,setSearchTerm}) => {
   const [userDetails, setUserdetails] = useState(null);
-  const [showDropdwon , setShowdropdown] = useState(false);
  const navigate = useNavigate();
    const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -53,12 +52,12 @@ setUserdetails(()=>user);
           <div className=' flex items-center gap-1.5 text-gray-500'>
             <span className=''><HelpOutlineIcon></HelpOutlineIcon></span>
             <span><NotificationsNoneIcon></NotificationsNoneIcon></span>
-            <span className=' cursor-pointer  relative '    id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClickmenu} 
-{/*               onClick={()=>setShowdropdown(true)}  */}
+            <span className=' cursor-pointer  relative '  
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClickmenu}
               >
             {
               userDetails ? ( <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-black font-semibold shadow-md ring-1 ring-black">
@@ -66,19 +65,11 @@ setUserdetails(()=>user);
 </span>) :  (<span><AccountCircleIcon></AccountCircleIcon></span>)
             }
                
-                 {
-            showDropdwon ? ( 
+                 
+          
               
                 <div>
-{/*       <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClickmenu}
-      >
-        Dashboard
-      </Button> */}
+
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -96,14 +87,7 @@ setUserdetails(()=>user);
       </Menu>
     </div>
               
-              
-            //   <div id='moreoption'  className=' absolute right-2 z-1 bg-white'>
-            //   <ul className='border-1 border-gray-300 shadow p-2 rounded-md'>
-            //     <li className=' text-red-500  text-nowrap ' onClick={handelLogout} >Log Out</li>
-            //   </ul>
-            // </div>
-              ) : (null) 
-          }
+             
             </span>
 
           </div>
