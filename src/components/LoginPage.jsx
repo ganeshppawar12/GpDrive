@@ -31,10 +31,10 @@ const LoginPage = () => {
             {/* <span className="text-sm">Questions?</span> */}
             {/* <span className="text-blue-200 cursor-pointer">Ask Ho3ein</span> */}
           </div>
-          <h2 className="text-2xl font-bold relative z-10">Have your own personal website</h2>
+          <h2 className="text-2xl font-bold relative z-10">Have your own personal storage</h2>
           {/* <p className="mt-4 text-lg relative z-10">Ai-powered tools at your fingertips</p> */}
           <div className="mt-6 w-full h-64 bg-white rounded-lg flex items-center justify-center relative z-10">
-            <img src="https://source.unsplash.com/400x300/?cartoon,technology" alt="Cartoon People with Laptop" className="w-full h-full object-cover rounded-lg" />
+            <img src="https://media.istockphoto.com/id/1425853222/photo/shopping-cart-with-bag-location-sign-3d-render-concept-for-super-market.jpg?s=612x612&w=0&k=20&c=8rp9xrcolCBNJJS6JF-cX0mcP7NgO8Oubqu60pKoe-U=" alt="Cartoon People with Laptop" className="w-full h-full object-cover rounded-lg" />
           </div>
           {/* Background Illustration */}
           <div className="absolute inset-0 z-0 flex justify-center items-center">
