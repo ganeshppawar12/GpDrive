@@ -61,13 +61,13 @@ setUserdetails(()=>user);
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClickmenu}
       >
-        Dashboard
-      </Button>
-            {
+        {
               userDetails ? ( <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-black font-semibold shadow-md ring-1 ring-black">
   {userDetails.name[0]?.toUpperCase()}
 </span>) :  (<span><AccountCircleIcon></AccountCircleIcon></span>)
             }
+      </Button>
+           
                
                  
 
