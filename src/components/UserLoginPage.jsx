@@ -97,7 +97,9 @@ const Userloginpage = () => {
             className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
           >
                {loading 
-              ?  <Box sx={{ display: 'flex' }}>
+              ?  <Box sx={{ display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',}}>
                      <CircularProgress />
                   </Box> 
               :  'Sign in'} 
