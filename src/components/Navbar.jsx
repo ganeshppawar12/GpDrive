@@ -52,13 +52,17 @@ setUserdetails(()=>user);
           <div className=' flex items-center gap-1.5 text-gray-500'>
             <span className=''><HelpOutlineIcon></HelpOutlineIcon></span>
             <span><NotificationsNoneIcon></NotificationsNoneIcon></span>
-            <span className=' cursor-pointer  relative '  
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClickmenu}
-              >
+            <span className=' cursor-pointer  relative ' >
+
+                <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClickmenu}
+      >
+        Dashboard
+      </Button>
             {
               userDetails ? ( <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-black font-semibold shadow-md ring-1 ring-black">
   {userDetails.name[0]?.toUpperCase()}
@@ -66,13 +70,12 @@ setUserdetails(()=>user);
             }
                
                  
-        
 
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClosemenu}
+        onClose={handleClose}
         slotProps={{
           list: {
             'aria-labelledby': 'basic-button',
@@ -83,7 +86,8 @@ setUserdetails(()=>user);
         <MenuItem >My account</MenuItem>
         <MenuItem  onClick={handelLogout}>Logout</MenuItem>
       </Menu>
-               
+
+              
              
             </span>
 
