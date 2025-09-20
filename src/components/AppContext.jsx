@@ -6,6 +6,7 @@ export const AppProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [totalsize , setTotalsize] = useState(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -21,6 +22,8 @@ export const AppProvider = ({ children }) => {
         setUploading,
         searchTerm,
         setSearchTerm,
+        totalsize,
+        setTotalsize,
       }}
     >
       {children}

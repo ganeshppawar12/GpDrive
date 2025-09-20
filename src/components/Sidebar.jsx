@@ -7,12 +7,15 @@ import NoteOutlinedIcon from '@mui/icons-material/NoteOutlined';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from '@mui/material/Button';
+import { useAppContext } from './AppContext';
 
 
-const Sidebar = ({handleOpen ,totalSize}) => {
+const Sidebar = ({handleOpen}) => {
 
-    const MAX_STORAGE_MB = 500;
-    const percentUsed = Math.min((totalSize / MAX_STORAGE_MB) * 100, 100).toFixed(2);
+  const {totalsize} = useAppContext();
+  const MAX_STORAGE_MB = 500;
+  const percentUsed = Math.min(((totalsize / (1024 * 1024)).toFixed(2) / MAX_STORAGE_MB) * 100, 100).toFixed(2);
+  const totalusedStoarge = ((totalsize / (1024 * 1024)).toFixed(2) / MAX_STORAGE_MB) * 100;
 
   return (
     <div className='w-60 p-2 flex flex-col gap-3 border-r-1 border-gray-300'>
@@ -44,13 +47,14 @@ const Sidebar = ({handleOpen ,totalSize}) => {
  </div>
 
  <div>
-    <p>{totalSize}MB of {MAX_STORAGE_MB}MB</p>
-  <div className="w-full bg-gray-200 rounded-full h-3">
-    <div
-      className="bg-blue-500 h-3 rounded-full transition-all duration-300"
-      style={{ width: `${percentUsed}%` }}
-    ></div>
-  </div>
+
+    <p>{(totalsize / (1024 * 1024)).toFixed(2)}MB of {MAX_STORAGE_MB}MB</p>
+<div className="w-full bg-gray-200 rounded-full h-3 mt-1">
+  <div
+    className="bg-blue-600 h-3 rounded-full"
+    style={{ width: `${totalusedStoarge}%`  , backgroundColor : totalusedStoarge < 401 ? "blue" : "red" }}
+  ></div>
+</div>
     
  </div>
 

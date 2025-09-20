@@ -4,10 +4,12 @@ import VideoChatIcon from "@mui/icons-material/VideoChat";
 import ArticleIcon from "@mui/icons-material/Article";
 import BackupTableIcon from "@mui/icons-material/BackupTable";
 import axios from 'axios';
+import { useAppContext } from "./AppContext";
 
 const FiltterSection = ({ uploading }) => {
  const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
+  const {setTotalsize} = useAppContext()
   const api = import.meta.env.VITE_API_URL;
      useEffect(() => {
    
@@ -39,14 +41,19 @@ const FiltterSection = ({ uploading }) => {
   other: { count: 0, size: 0 },
 };
 
+let newTotal = 0;
+
 files.forEach((file) => {
   const type = file.type?.toLowerCase();
   const key = typeStats[type] ? type : 'other';
 
   typeStats[key].count++;
   typeStats[key].size += file.size;
+
+  newTotal += file.size; // add up sizes
 });
 
+setTotalsize(newTotal);
 
   // ✅ Step 3: Updated filter array (with real counts)
 const filtters = [
