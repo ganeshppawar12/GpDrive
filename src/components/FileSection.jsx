@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import axios from 'axios';
+import { useAppContext } from './AppContext';
 const FileSection = ({uploading , searchTerm}) => {
 
  const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
  const [viewType, setViewType] = useState("list"); 
   const api = import.meta.env.VITE_API_URL;
-
+ const {searchQuery,setSearchQuery } = useAppContext();
 
 
 
@@ -32,6 +33,7 @@ const FileSection = ({uploading , searchTerm}) => {
 
     fetchFiles();
   }, [uploading]);
+  
   
 
 // Delete Functionality
@@ -88,6 +90,12 @@ const handleDownload = (url) => {
   window.open(url, '_blank');
 };
 
+
+
+ const filteredFiles = files.filter(file =>
+    file?.filename?.toLowerCase().includes(searchQuery.toLowerCase())
+ )
+
   return (
 
     <>
@@ -132,7 +140,7 @@ const handleDownload = (url) => {
     </tr>
   </thead>
   <tbody>
-    {files.map((file) => {
+    {filteredFiles.map((file) => {
       const fileSizeInMB = file.size / (1024 * 1024);
       const displaySize =
         fileSizeInMB < 1

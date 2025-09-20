@@ -7,12 +7,14 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from './AppContext';
 
-const navbar = ({searchTerm,setSearchTerm}) => {
+const navbar = () => {
   const [userDetails, setUserdetails] = useState(null);
  const navigate = useNavigate();
    const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const {searchQuery,setSearchQuery } = useAppContext();
 
   const handleClickmenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,6 +22,7 @@ const navbar = ({searchTerm,setSearchTerm}) => {
   const handleClosemenu = () => {
     setAnchorEl(null);
   };
+  
  
  function handelLogout(){
   localStorage.removeItem('token');
@@ -43,8 +46,8 @@ setUserdetails(()=>user);
         <div className=' flex items-center  border-1 rounded-md border-gray-300 p-1 w-64 '>
             <SearchIcon className=' text-gray-400'></SearchIcon>
             <input className='border-0 outline-0 w-100 '  type="text" placeholder='Search for documents & files'  name='search'
-            value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)} 
+           value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
   />
         </div>
 

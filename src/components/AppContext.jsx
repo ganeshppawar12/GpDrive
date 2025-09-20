@@ -7,6 +7,7 @@ export const AppProvider = ({ children }) => {
   const [uploading, setUploading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [totalsize , setTotalsize] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -24,6 +25,8 @@ export const AppProvider = ({ children }) => {
         setSearchTerm,
         totalsize,
         setTotalsize,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       {children}
